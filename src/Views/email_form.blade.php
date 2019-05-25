@@ -33,7 +33,7 @@
         {!! csrf_field() !!}
         <table width="100%" cellpadding="5px" border="1px">
             <tr>
-                <td width="30%">Driver</td><td><input type="text" name="driver" size="90" value="{{ $driver?:'smtp' }}" required ></td>
+                <td width="20%">Driver</td><td><input type="text" name="driver" size="90" value="{{ $driver?:'smtp' }}" required ></td>
             </tr>
             <tr>
                 <td>Hostname</td><td><input type="text" name="hostname" size="90" value="{{ $hostname }}" required ></td>
