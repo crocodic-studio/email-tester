@@ -31,9 +31,9 @@
     <hr>
     <form action="" method="post">
         {!! csrf_field() !!}
-        <table width="500px" cellpadding="5px" border="1px">
+        <table width="100%" cellpadding="5px" border="1px">
             <tr>
-                <td>Driver</td><td><input type="text" name="driver" size="90" value="{{ $driver?:'smtp' }}" required ></td>
+                <td width="30%">Driver</td><td><input type="text" name="driver" size="90" value="{{ $driver?:'smtp' }}" required ></td>
             </tr>
             <tr>
                 <td>Hostname</td><td><input type="text" name="hostname" size="90" value="{{ $hostname }}" required ></td>
@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <td>Message</td><td>
-                    <textarea required name="content" rows="5">{{ $content?:'Hi there, Congratulation the email has been received successfully' }}</textarea>
+                    <textarea style="width: 100%" required name="content" rows="5">{{ $content?:'Hi there, Congratulation the email has been received successfully' }}</textarea>
                     </td>
             </tr>
             <tr>
