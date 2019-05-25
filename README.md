@@ -5,7 +5,7 @@ Debugging send the email is never been easy. With this library you can debug and
 ## How to install
 Install this library with command : 
 
-<code>composer require crocodicstudio/emailtester</code>
+<code>composer require crocodicstudio/email-tester</code>
 
 Recommended laravel version 5.7 up . If you use 5.4 or bellow you have to add service provider manually
 
