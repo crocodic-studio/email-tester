@@ -11,11 +11,46 @@ class EmailTesterController extends BaseController
 
     public function getIndex()
     {
-        return view("emailtester::email_form");
+        $data = [];
+        $data['driver'] = session("driver");
+        $data['hostname'] = session("hostname");
+        $data['port'] = session("port");
+        $data['encryption'] = session('encryption');
+        $data['username'] = session('username');
+        $data['password'] = session('password');
+        $data['content'] = session('content');
+        $data['subject'] = session('subject');
+        $data['to'] = session('to');
+
+        return view("emailtester::email_form",$data);
     }
 
     public function postSend()
     {
+
+        session([
+           "driver"=>request("driver"),
+           "hostname"=>request("hostname"),
+           "port"=>request("port"),
+           "encryption"=>request("encryption"),
+           "username"=>request("username"),
+           "password"=>request("password"),
+           "subject"=>request("subject"),
+           "to"=>request("to"),
+           "content"=>request("content")
+        ]);
+
+        $data = [];
+        $data['driver'] = session("driver");
+        $data['hostname'] = session("hostname");
+        $data['port'] = session("port");
+        $data['encryption'] = session('encryption');
+        $data['username'] = session('username');
+        $data['password'] = session('password');
+        $data['content'] = session('content');
+        $data['subject'] = session('subject');
+        $data['to'] = session('to');
+
         Config::set('mail.driver',request("driver"));
         Config::set('mail.host',request('hostname'));
         Config::set('mail.port', request('port'));
