@@ -1,0 +1,29 @@
+{
+    "name": "crocodicstudio/email-tester",
+    "description": "SMTP Email tester and debug for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ferry Ariawan",
+            "email": "ferry@crocodic.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": ">5.6",
+      "laravel/laravel":"^5.4"
+    },
+    "autoload": {
+      "psr-0": {
+        "crocodicstudio\\emailtester": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "crocodicstudio\\emailtester\\EmailTesterServiceProvider"
+        ]
+      }
+    }
+}
