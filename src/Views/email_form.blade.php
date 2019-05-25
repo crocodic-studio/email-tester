@@ -29,7 +29,7 @@
                 <td>To</td><td><input type="text" name="to" size="90" value="{{ $to }}" required ></td>
             </tr>
             <tr>
-                <td>Subject</td><td><input type="text" name="subject" size="90" value="{{ $subject?:'Thank you for using this email tester' }}" required ></td>
+                <td>Subject</td><td><input type="text" name="subject" size="90" value="{{ $subject?:'Thank you for using this email tester at '.date('d F Y H:i') }}" required ></td>
             </tr>
             <tr>
                 <td>Message</td><td><input type="text" name="content" size="90" value="{{ $content?:'Hi there, Congratulation the email has been received successfully' }}" required ></td>
