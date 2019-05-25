@@ -1,12 +1,37 @@
 <html>
     <head>
         <title>Email Tester For Laravel</title>
+        <style>
+            pre {
+                background: #000000;
+                color: green;
+                padding: 10px;
+                border: 2px solid #cccccc;
+                min-height: 100px;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            form {
+                border: 2px solid #cccccc;
+                box-shadow: 3px 5px 15px #aaaaaa;
+            }
+            input[type=submit] {
+                border: 1px solid #aaaaaa;
+                background: #0072d6;
+                padding: 5px 10px 5px 10px;
+                color: #ffffff;
+                font-size: 20px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
     <h2>Email Tester For Laravel</h2>
+    <hr>
     <form action="" method="post">
         {!! csrf_field() !!}
-        <table width="500px" border="1px">
+        <table width="500px" cellpadding="5px" border="1px">
             <tr>
                 <td>Driver</td><td><input type="text" name="driver" size="90" value="{{ $driver?:'smtp' }}" required ></td>
             </tr>
@@ -32,10 +57,12 @@
                 <td>Subject</td><td><input type="text" name="subject" size="90" value="{{ $subject?:'Thank you for using this email tester at '.date('d F Y H:i') }}" required ></td>
             </tr>
             <tr>
-                <td>Message</td><td><input type="text" name="content" size="90" value="{{ $content?:'Hi there, Congratulation the email has been received successfully' }}" required ></td>
+                <td>Message</td><td>
+                    <textarea required name="content" rows="5">{{ $content?:'Hi there, Congratulation the email has been received successfully' }}</textarea>
+                    </td>
             </tr>
             <tr>
-                <td>&nbsp;</td><td><input type="submit" value="Submit"></td>
+                <td>&nbsp;</td><td><input type="submit" value="SUBMIT TO TEST"></td>
             </tr>
         </table>
     </form>
@@ -43,6 +70,10 @@
     @if(isset($debug))
         <pre>
         {!! $debug !!}
+        </pre>
+        @else
+        <pre>
+            Ready to test!
         </pre>
     @endif
     </body>
