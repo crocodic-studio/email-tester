@@ -32,17 +32,19 @@ class EmailTesterController extends BaseController
         $data['debug'] = "";
 
         try{
-            Mail::send("crudbooster::emails.blank",['content'=>request('content')],function($message) {
+            Mail::send("emailtester::blank",['content'=>request('content')],function($message) {
                 $message->priority(1);
                 $message->to(request('to'));
                 $message->from("email-tester@".$_SERVER['SERVER_NAME'],"Email Tester Agent");
                 $message->subject(request("subject"));
             });
         }catch(\Swift_TransportException $e) {
-            // $data['debug'] .= $e->getMessage();
+             $data['debug'] .= $e->getMessage();
         }
 
 
         $data['debug'] .= $logger->dump();
+
+        return view("emailtester::email_form", $data);
     }
 }
