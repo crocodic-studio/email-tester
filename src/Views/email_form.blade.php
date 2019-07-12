@@ -51,6 +51,9 @@
                 <td>Encryption</td><td><input type="text" name="encryption" size="40" value="{{ $encryption?:"tls" }}" ></td>
             </tr>
             <tr>
+                <td>From</td><td><input type="text" name="from" size="90" value="{{ $from }}" required ></td>
+            </tr>
+            <tr>
                 <td>To</td><td><input type="text" name="to" size="90" value="{{ $to }}" required ></td>
             </tr>
             <tr>

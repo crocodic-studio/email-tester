@@ -21,6 +21,7 @@ class EmailTesterController extends BaseController
         $data['content'] = session('content');
         $data['subject'] = session('subject');
         $data['to'] = session('to');
+        $data['from'] = session('from','no-reply@'.$_SERVER['SERVER_NAME']);
 
         return view("emailtester::email_form",$data);
     }
@@ -36,6 +37,7 @@ class EmailTesterController extends BaseController
            "username"=>request("username"),
            "password"=>request("password"),
            "subject"=>request("subject"),
+           "from"=>request("from"),
            "to"=>request("to"),
            "content"=>request("content")
         ]);
@@ -50,6 +52,7 @@ class EmailTesterController extends BaseController
         $data['content'] = session('content');
         $data['subject'] = session('subject');
         $data['to'] = session('to');
+        $data['from'] = session("from","no-reply@".$_SERVER['SERVER_NAME']);
 
         Config::set('mail.driver',request("driver"));
         Config::set('mail.host',request('hostname'));
@@ -67,10 +70,10 @@ class EmailTesterController extends BaseController
         $data['debug'] = "";
 
         try{
-            Mail::send("emailtester::blank",['content'=>request('content')],function($message) {
+            Mail::send("emailtester::blank",['content'=>request('content')],function($message) use ($data) {
                 $message->priority(1);
                 $message->to(request('to'));
-                $message->from("email-tester@".$_SERVER['SERVER_NAME'],"Email Tester Agent");
+                $message->from($data['from'],"Email Tester Agent");
                 $message->subject(request("subject"));
             });
         }catch(\Swift_TransportException $e) {
